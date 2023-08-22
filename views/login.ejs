@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--===============================================================================================-->
+    <link
+      rel="icon"
+      type="image/png"
+      href="/login/Login_v17/images/icons/favicon.ico"
+    />
+    <!--===============================================================================================-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/login/Login_v17/vendor/bootstrap/css/bootstrap.min.css"
+    />
+    <!--===============================================================================================-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/login/Login_v17/fonts/font-awesome-4.7.0/css/font-awesome.min.css"
+    />
+    <!--===============================================================================================-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/login/Login_v17/fonts/Linearicons-Free-v1.0.0/icon-font.min.css"
+    />
+    <!--===============================================================================================-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/login/Login_v17/vendor/animate/animate.css"
+    />
+    <!--===============================================================================================-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/login/Login_v17/vendor/css-hamburgers/hamburgers.min.css"
+    />
+    <!--===============================================================================================-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/login/Login_v17/vendor/animsition/css/animsition.min.css"
+    />
+    <!--===============================================================================================-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/login/Login_v17/vendor/select2/select2.min.css"
+    />
+    <!--===============================================================================================-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/login/Login_v17/vendor/daterangepicker/daterangepicker.css"
+    />
+    <!--===============================================================================================-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/login/Login_v17/css/util.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/login/Login_v17/css/main.css"
+    />
+    <!--===============================================================================================-->
+
+    <meta charset="UTF-8" />
+    <title>Login - Hospital Manager</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css"
+    />
+  </head>
+  <body>
+    <!-- <div class="limiter"> -->
+    <!-- <div class="container-login100"> -->
+    <!-- <div class="wrap-login100"> -->
+    <div>
+      <div>
+        <div>
+          <form
+            method="post"
+            action="/login"
+          >
+
+		   <!-- login page here  -->
+            <div style="display:flex;  justify-content:center; align-items: center; height: 100vh; width: 100vw;  " >
+			<!-- image -->
+				<div style="width: 30%;background-color: white; height: 50%;  display: flex ; justify-content: center ; align-items: center; border: 1px solid lightgray;">
+					<img src="/assets/receptionist.png" alt="receptionist" width="50%"/>
+			</div>
+
+			<div style="width: 30%; background-color:lightgray; height: 50%;">
+				<span style="color:grey; margin: 10px 10px; display:flex; justify-content: center; width: 100%;  font-size: x-large; margin-top: 10%;">
+					Login
+				</span>
+
+				<div class="" data-validate="Type user name" style="display: flex; width: 100%; align-items: center; margin-left: 30px;  ">
+					<label class="" style="font-size: 90%; margin-right: 20px; color:grey;  width: 15%;">User ID</label>
+					<input id="first-name"  type="text" name="username" placeholder="User ID" required style="width: 50%; border-radius: 5px; border: 2px solid lightgray; outline: none; background-color: white; padding: 8px 5px;">
+				</div>
+
+				<div class="" data-validate="Type password" style="display: flex;  width: 100%; align-items: center; margin-left: 30px; margin-top:5% ">
+					<label class="" style="font-size: 90%; margin-right: 20px; color:grey; width: 15%;" >Password</label>
+					<input id="first-name" type="password" name="password" placeholder="Password" required style="width: 50%; border-radius: 5px; border: 2px solid lightgray; outline: none; background-color: white; padding: 8px 5px;">
+				</div>
+
+
+				<div class=""  style=" display: flex; justify-content: center;  margin-top:5%  ">
+					<button type="SUBMIT" style="width: 50%; background-color: black; padding: 10px; border-radius:5px; color:white" >Login</button>
+				</div>
+
+				<div class="" style=" display: flex; justify-content: center;  margin-top:4% ">
+					<a href="#" class="" style="color:grey; text-decoration: underline;"> Forgot Password? </a>
+		
+				</div>
+					<div  style="display: flex; justify-content: center; " >
+					  <% if(error){ %>
+					  <label style="color: red; text-align: center; margin-top: 10px"
+						>Invalid Credentials! Please Try Again</label
+					  >
+					  <% } %>
+				  </div>
+				
+		  </div>
+
+		
+
+			<div>
+				
+				
+			</div>
+			
+
+			</div>
+
+          </form>
+
+          <script>
+            $(".txt2").click(function () {
+              swal(
+                {
+                  title: "Reset Password",
+                  text: "Enter User ID",
+                  type: "input",
+                  inputPlaceholder: "User ID",
+                  showCancelButton: true,
+                  closeOnConfirm: false,
+                },
+                function (inputValue) {
+                  if (inputValue === false) {
+                    return false;
+                  }
+                  if (inputValue === "") {
+                    swal("User ID cannot be empty", "", "error");
+                    return false;
+                  }
+                  swal(
+                    "Success!",
+                    "You will receive an Email containing the new password if the User ID is valid",
+                    "success"
+                  );
+                  $.ajax({
+                    type: "POST",
+                    url: "/reset",
+                    data: { userid: inputValue },
+                    success: function (data) {},
+                  });
+                }
+              );
+            });
+          </script>
+
+          <div
+            class="login100-more"
+            style="
+              background-image: url('/login/Login_v17/images/template1.jpg');
+            "
+          ></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="dropDownSelect1"></div>
+
+    <!--===============================================================================================-->
+    <script src="/login/Login_v17/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="/login/Login_v17/vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="/login/Login_v17/vendor/bootstrap/js/popper.js"></script>
+    <script src="/login/Login_v17/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="/login/Login_v17/vendor/select2/select2.min.js"></script>
+    <script>
+      $(".selection-2").select2({
+        minimumResultsForSearch: 20,
+        dropdownParent: $("#dropDownSelect1"),
+      });
+    </script>
+    <!--===============================================================================================-->
+    <script src="/login/Login_v17/vendor/daterangepicker/moment.min.js"></script>
+    <script src="/login/Login_v17/vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="/login/Login_v17/vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="/login/Login_v17/js/main.js"></script>
+  </body>
+</html>
